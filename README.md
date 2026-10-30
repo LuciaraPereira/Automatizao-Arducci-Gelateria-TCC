@@ -1,143 +1,129 @@
-# Sistema de Automação de Pedidos — Arducci Gelateria & Açaíteria
+# Arducci Gelateria e Açaiteria - Automação e Gestão
 
-### Equipe: Luciara Silva Pereira, Sabrina Clemente da Silva e Vivian Gomes Leal da Rocha
-### Público-alvo: Clientes da Arducci Gelateria & Açaíteria e funcionários responsáveis pelo atendimento e gerenciamento dos pedidos.
-### Tipo de aplicação: Sistema web de pedidos com área do cliente e central administrativa.
-### Plataforma(s): Web.
-### Domínio: Comércio e alimentação.
-### Previsão de entrega: a definir
+Este repositório contém o código-fonte do Sistema Integrado de Automação e Gestão para a Arducci Gelateria e Açaiteria, desenvolvido como Trabalho de Conclusão de Curso (TCC).
 
----
+O projeto busca resolver problemas de filas e otimizar o atendimento através de um sistema de autoatendimento via QR Code nas mesas, além de fornecer um painel gerencial robusto para os administradores. O público-alvo inclui os clientes da gelateria, os funcionários de balcão e a administração da loja.
 
-## Visão geral
+**Status:** 🚧 Em fase de Engenharia de Requisitos, Modelagem de Banco de Dados e Prototipação. O desenvolvimento do código será iniciado em breve.
 
-O projeto consiste no desenvolvimento de um sistema web para automatizar o atendimento e o gerenciamento de pedidos da Arducci Gelateria & Açaíteria, permitindo que os clientes realizem seus pedidos de forma digital e selecionem a opção de retirada no estabelecimento.
+# Funcionalidades
 
-O sistema contará com uma área destinada aos clientes, onde será possível visualizar os produtos, montar o pedido e acompanhar seu status. Paralelamente, uma central administrativa permitirá que os funcionários recebam, visualizem e gerenciem os pedidos realizados.
+- Autoatendimento (Clientes): Acesso ao cardápio digital via QR Code, personalização de produtos, carrinho de compras e pagamento integrado via PIX.
 
-A proposta busca reduzir a dependência do atendimento manual, organizar o fluxo de pedidos e proporcionar maior agilidade tanto para os clientes quanto para a equipe da gelateria.
+- Gestão de Fila (Funcionários): Acompanhamento de pedidos em tempo real e atualização de status (Ex: Em preparo, Pronto).
 
----
+- Painel Gerencial (Administradores): Operações CRUD de produtos, registro de movimentação de estoque, aprovação de cancelamentos e dashboards com relatórios de vendas.
 
-## Problema
+- Segurança: Autenticação e controle de acesso por níveis de privilégio utilizando tokens JWT.
 
-O atendimento realizado de forma predominantemente manual pode gerar dificuldades no registro, organização e acompanhamento dos pedidos, principalmente em períodos de maior movimento.
+# Tecnologias utilizadas
 
-O cliente pode precisar aguardar atendimento para realizar seu pedido, enquanto os funcionários precisam receber, interpretar, registrar e controlar as solicitações. Esse processo pode aumentar o tempo de atendimento e possibilitar erros na comunicação ou no registro dos produtos solicitados.
+O sistema é dividido em uma arquitetura de API RESTful (Back-end) e uma Single Page Application (Front-end).
 
-A automatização desse processo é relevante porque permite centralizar as informações dos pedidos, melhorar a organização interna e oferecer ao cliente uma alternativa mais rápida e prática para realizar sua compra.
+* Front-end: React.js, Tailwind CSS (Design responsivo e Componentização).
 
----
+* Back-end: Java SE (LTS), Spring Boot (Controllers, Services, Repositories), Spring Security (Autenticação JWT).
 
-## Solução proposta
+* Banco de Dados: (A definir o SGBD, utilizando JPA/Hibernate).
 
-A solução proposta é um sistema web de pedidos com acesso para clientes e uma central administrativa.
+* Prototipação & Design: Figma.
 
-O cliente poderá acessar o sistema, consultar os produtos disponíveis, selecionar os itens desejados, informar seus dados e finalizar o pedido para retirada na gelateria.
+* Integrações: API de Gateway de Pagamentos para geração de QR Code e webhooks do PIX.
 
-Após a realização do pedido, as informações serão encaminhadas automaticamente para a central administrativa, onde os funcionários poderão visualizar os pedidos recebidos e atualizar seus respectivos status.
+# Pré-requisitos
 
-Dessa forma, o sistema cria um fluxo digital entre cliente e estabelecimento, reduzindo etapas manuais e facilitando o gerenciamento dos pedidos.
+Para rodar este projeto futuramente, será necessário ter as seguintes ferramentas instaladas:
 
----
+* Git
 
-## Funcionalidades
+* Node.js (Versão 18+ recomendada) e npm (ou pnpm/Yarn) para o Front-end.
 
-### Área do cliente
+* Java JDK (Versão 17 ou 21) para o Back-end.
 
-* Cadastro e login do cliente;
-* Visualização do catálogo de produtos;
-* Visualização de informações e preços dos produtos;
-* Adição e remoção de produtos do carrinho;
-* Alteração das quantidades;
-* Finalização do pedido;
-* Seleção da modalidade de retirada;
-* Visualização do resumo do pedido;
-* Acompanhamento do status do pedido;
-* Histórico de pedidos.
+# Instalação e configuração
 
-### Central administrativa
+(Instruções detalhadas serão adicionadas assim que a base de código for inicializada).
 
-* Login de administrador/funcionário;
-* Visualização dos pedidos recebidos;
-* Consulta dos detalhes de cada pedido;
-* Atualização do status dos pedidos;
-* Gerenciamento de produtos;
-* Cadastro, alteração e desativação de produtos;
-* Consulta do histórico de pedidos;
-* Centralização dos pedidos em uma única interface para facilitar o atendimento.
+## 1. Obter o código-fonte
 
----
+```
+git clone URL_DO_SEU_REPOSITORIO
+cd arducci-gelateria
+```
 
-## Diferencial / Concorrência
+## 2. Instalar as dependências (Front-end)
 
-Existem diversas soluções utilizadas no mercado para pedidos online, como iFood e sistemas próprios de restaurantes e estabelecimentos de alimentação.
+```
+cd frontend
+npm install
+```
 
-O diferencial do projeto é desenvolver uma solução direcionada especificamente às necessidades da Arducci Gelateria & Açaíteria, permitindo maior controle sobre o fluxo de pedidos e evitando a dependência exclusiva de plataformas intermediárias.
+## 3. Configurar o ambiente
 
-O sistema também poderá ser desenvolvido considerando a experiência específica dos clientes da gelateria, desde a escolha dos produtos até a retirada no estabelecimento.
+Será necessário configurar as variáveis de ambiente (como credenciais do Banco de Dados e chaves da API de pagamento) no arquivo application.properties (Back-end) e .env (Front-end). (Exemplos serão disponibilizados na fase de codificação).
 
----
+# Execução em ambiente de desenvolvimento
 
-## Inovação / Criatividade
+Nota: Os comandos abaixo refletem a estrutura planejada e estarão ativos na fase de desenvolvimento.
 
-A principal proposta de inovação está na utilização da tecnologia para transformar um processo de atendimento presencial e manual em um fluxo digital e organizado.
+## Para iniciar a API (Back-end):
+Utilize a sua IDE de preferência (como IntelliJ IDEA ou Eclipse) para rodar o projeto Spring Boot, ou execute via terminal:
 
-A aplicação busca proporcionar uma experiência simples ao cliente, com uma interface voltada para dispositivos móveis e uma central administrativa que permita à equipe acompanhar os pedidos de maneira organizada.
+```
+cd backend
+./mvnw spring-boot:run
+```
 
-Como evolução futura, o sistema poderá receber integrações com meios de pagamento, notificações, controle de estoque e outras ferramentas utilizadas pela gelateria.
+## Para iniciar a Interface (Front-end):
 
----
+```
+cd frontend
+npm run dev
+```
 
-## Escopo do projeto
+Acesse no navegador o endereço padrão (geralmente http://localhost:5173/).
 
-### Essencial — MVP
+# Build para produção
 
-* Cadastro e autenticação de clientes;
-* Login administrativo;
-* Catálogo de produtos;
-* Carrinho de compras;
-* Criação e envio de pedidos;
-* Definição da retirada no estabelecimento;
-* Central administrativa para recebimento dos pedidos;
-* Visualização dos detalhes dos pedidos;
-* Atualização do status dos pedidos;
-* Banco de dados para armazenamento das informações.
+(Processo de build e deploy será documentado nas fases finais do projeto).
 
-### Importante — se houver tempo
+## Exemplo esperado para o front-end:
 
-* Histórico de pedidos do cliente;
-* Gerenciamento completo de produtos;
-* Controle de disponibilidade dos produtos;
-* Notificações sobre alteração do status do pedido;
-* Relatórios administrativos.
+```
+cd frontend
+npm run build
+```
 
-### Opcional — baixa prioridade
+Os arquivos otimizados serão gerados no diretório dist/.
 
-* Integração com pagamento via Pix;
-* Integração com WhatsApp;
-* Programa de fidelidade;
-* Cupons de desconto;
-* Avaliação dos pedidos;
-* Integração futura com controle de estoque.
+# Aplicação publicada
 
----
+Ambiente: Atualmente o projeto encontra-se apenas em ambiente local / planejamento. A publicação (deploy) em nuvem será realizada na etapa final do TCC.
 
-## Planejamento simplificado
+# Estrutura do projeto
 
-| Etapa | Descrição                                                   | Prazo     |
-| ----- | ----------------------------------------------------------- | --------- |
-| 1     | Definição dos requisitos e estrutura do sistema             | A definir |
-| 2     | Modelagem do banco de dados e desenvolvimento inicial       | A definir |
-| 3     | Desenvolvimento do back-end e integração com a aplicação    | A definir |
-| 4     | Desenvolvimento da área do cliente e central administrativa | A definir |
-| 5     | Testes e correções                                          | A definir |
-| 6     | Entrega e documentação final                                | A definir |
+Estrutura planejada do repositório (Monorepo):
+```
+arducci-gelateria/
+├── backend/                API RESTful (Java / Spring Boot)
+│   ├── src/main/java/      Controladores, Serviços, Repositórios e Entidades
+│   └── pom.xml             Dependências do Maven
+├── frontend/               Interface Web SPA (React.js)
+│   ├── src/                Componentes, Páginas, Serviços de API e Estilos (Tailwind)
+│   ├── package.json        Dependências do npm
+│   └── vite.config.js      Configuração do empacotador
+└── README.md               Documentação do projeto
+```
 
----
+# Equipe
 
-## Tecnologias
+| Integrante        | Responsabilidade |
+|------------------ | ---------------- |
+| Sabrina Clemente |Engenharia de Software e camada de Negócio |
+| Luciara Pereira  |Estruturação do Banco de Dados (MER/DER)  |
+| Vivian Gomes     |Documentação e camada de presentação |
 
-As tecnologias serão definidas durante o desenvolvimento do projeto, considerando os conhecimentos da equipe e os requisitos necessários para construção do sistema.
 
-O projeto terá como foco principal o desenvolvimento do **back-end**, responsável pelo gerenciamento dos usuários, produtos, pedidos, autenticação, regras de negócio e comunicação com o banco de dados.
+# Documentação adicional
+
+Os artefatos de engenharia de software elaborados (Diagrama de Casos de Uso, Fluxos de Eventos) e as definições teóricas do TCC estão no nosso [ link do drive ](https://docs.google.com/document/d/1JJkD4QNlmHOATKFr68zNRPv7tgpQ52T5e4_wEQ5-4X0/edit?usp=drivesdk)
