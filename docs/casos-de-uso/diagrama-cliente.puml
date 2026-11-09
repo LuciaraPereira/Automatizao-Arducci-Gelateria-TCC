@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+title Sistema de Automação de Pedidos (cliente)
+actor "Cliente" as ator
+rectangle "Sistema Arducci" {
+  usecase "Cadastrar" as U0
+  usecase "Acessar Sistema" as U1
+  usecase "Consultar Cardápio" as U2
+  usecase "Gerenciar Cesta" as U3
+  usecase "Finalizar Pedido" as U4
+  usecase "Cancelar Pedido" as U5
+  usecase "Acessar com Credenciais" as U6
+  usecase "Acessar como Visitante" as U7
+  usecase "Personalizar Produto" as U8
+  usecase "Selecionar Forma de Pagamento" as U9
+  usecase "Pagar com PIX (online)" as U10
+  usecase "Gerar Comanda" as U11
+  usecase "Solicitar Cancelamento" as U12
+  usecase "Gerar Comanda Online" as U13
+  usecase "Gerar Comanda Física" as U14
+}
+ator -- U0
+ator -- U1
+ator -- U2
+ator -- U3
+ator -- U4
+ator -- U5
+U6 --|> U1
+U7 --|> U1
+U8 ..> U2 : <<extend>>
+U4 ..> U9 : <<include>>
+U10 ..> U9 : <<extend>>
+U9 ..> U11 : <<include>>
+U12 ..> U5 : <<extend>>
+U13 --|> U11
+U14 --|> U11
+@enduml

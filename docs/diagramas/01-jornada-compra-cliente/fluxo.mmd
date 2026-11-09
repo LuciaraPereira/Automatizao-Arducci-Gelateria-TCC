@@ -1,0 +1,18 @@
+flowchart TD
+ A[Início] --> B[Login ou cadastro]
+ B --> C[Home do Cliente Arducci]
+ C --> D[Consultar categoria e produto]
+ D --> E[Escolher sabores e complementos]
+ E --> F[Sacola: revisar itens e quantidades]
+ F --> G[Finalizar pedido]
+ G --> H{Consumo}
+ H -->|Balcão| I[Selecionar pagamento]
+ H -->|Mesa| J[Informar número da mesa]
+ J --> I
+ I -->|PIX ou cartão: cenário demonstrativo| K[Confirmar pagamento simulado]
+ I -->|Dinheiro no caixa| L[Gerar comanda pendente]
+ L --> M[Administrador no Caixa confirma recebimento]
+ K --> N[Acompanhar pedido]
+ M --> N
+ C --> O[Perfil ou sair]
+ O -->|Logout| A

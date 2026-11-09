@@ -1,0 +1,169 @@
+Tabela 1 – Fluxo de Eventos: Realizar Pedido (Cliente) 
+
+Caso de uso: 
+
+Realizar Pedido (Engloba Consultar Cardápio, Finalizar Pedido e Gerar Comanda) 
+Atores: 
+
+Cliente
+Pré-condições:
+
+O cliente acessou o sistema (com credenciais ou como visitante). 
+Pós-condições: 
+
+O pedido é salvo no banco de dados e aguarda preparo ou pagamento no balcão. 
+Fluxo principal:
+1. O cliente consulta o cardápio digital.
+2. O cliente decide personalizar o produto, selecionando sabores e complementos.
+3. O cliente adiciona o item e gerencia sua cesta de compras.
+4. O cliente aciona o botão "Finalizar Pedido".
+5. O sistema solicita a forma de pagamento e o cliente seleciona "PIX".
+6. O sistema exibe o QR Code e o cliente realiza o pagamento.
+7. O sistema confirma o pagamento, gera a "Comanda Online" e envia o pedido para a fila de preparo.
+Fluxo alternativo: 
+5a. O cliente seleciona "Cartão/Dinheiro" como forma de pagamento.
+5a.1. O sistema gera a "Comanda Física" digitalmente.
+5a.2. O sistema orienta o cliente a dirigir-se ao caixa para pagamento.
+
+
+Tabela 2 – Fluxo de Eventos: Cancelar Pedido (Cliente) 
+Caso de uso:
+
+Cancelar pedido
+Atores: 
+
+Cliente
+Pré-condições: 
+
+O cliente possui um pedido em andamento no sistema. 
+Pós-condições: 
+
+O pedido é cancelado e os itens são retirados da cesta, ou a solicitação é enviada para análise. 
+Fluxo principal: 
+1. O cliente acessa a tela de acompanhamento do pedido.
+2. O cliente clica no botão "Cancelar Pedido".
+3. O sistema cancela a transação imediatamente.
+4. O sistema esvazia a cesta e retorna ao cardápio.
+Fluxo alternativo: 
+2a. O pedido já encontra-se com o status "Pago" ou "Em preparação".
+2a.1. O cliente clica em "Cancelar Pedido".
+2a.2. O sistema gera uma solicitação de cancelamento para o Administrador.
+2a.3. O sistema orienta o cliente a aguardar a autorização no caixa.
+
+
+
+
+
+
+
+Tabela 3 – Fluxo de Eventos: Acompanhar Fila e Atualizar Status (Funcionário) 
+
+Caso de uso: 
+
+Acompanhar Fila e Atualizar Status 
+Atores:
+
+Funcionário 
+Pré-condições: 
+
+O funcionário efetuou o login e acessou a área operacional. 
+Pós-condições: 
+
+O status do pedido é alterado no banco de dados e refletido para o cliente. 
+Fluxo principal: 
+1. O funcionário acessa a tela "Acompanhar fila de pedidos".
+2. O sistema exibe os pedidos recebidos organizados por ordem de chegada.
+3. O funcionário inicia a montagem do pedido.
+4. O funcionário clica em "Atualizar status do pedido" selecionando a opção "Pronto".
+5. O sistema atualiza a interface do cliente informando a conclusão.
+Fluxo alternativo: 
+
+
+(Não se aplica fluxo alternativo complexo para esta ação direta) 
+
+
+
+Tabela 4 – Fluxo de Eventos: Processar Pagamento Físico (Funcionário) 
+
+
+Caso de uso: 
+
+Processar Pagamento Físico 
+Atores: 
+
+Funcionário 
+Pré-condições: 
+
+O cliente gerou uma comanda física e dirigiu-se ao caixa. 
+Pós-condições: 
+
+O pedido é liquidado financeiramente e o status atualizado para pago. 
+Fluxo principal: 
+1. O funcionário recebe o número do pedido informado pelo cliente.
+2. O funcionário consulta a comanda no sistema.
+3. O sistema exibe os itens e o valor total a ser cobrado.
+4. O funcionário processa o pagamento na maquininha ou em dinheiro.
+5. O funcionário confirma o recebimento no sistema.
+
+
+Fluxo alternativo: 
+2a. Durante o atendimento, o funcionário nota que um sabor de gelato acabou na vitrine.
+2a.1. O funcionário acessa "Atualizar disponibilidade de balcão".
+2a.2. O funcionário marca o sabor como esgotado.
+2a.3. O sistema oculta o sabor do cardápio dos clientes imediatamente.
+
+
+Tabela 5 – Fluxo de Eventos: Registrar Movimentação de Estoque (Administrador) 
+
+
+Caso de uso: 
+
+Registrar Movimentação de Estoque 
+Atores: 
+
+Administrador
+Pré-condições: 
+
+O administrador efetuou login no painel gerencial. 
+Pós-condições: 
+
+O saldo de insumos é atualizado no banco de dados. 
+Fluxo principal:
+1. O administrador acessa a tela "Registrar movimentação de estoque".
+2. O administrador seleciona o insumo desejado.
+3. O administrador insere a quantidade e o motivo (entrada de fábrica ou saída/perda).
+4. O administrador confirma a operação.
+5. O sistema atualiza o saldo geral do estoque.
+Fluxo alternativo: 
+
+3a. O administrador deseja criar um aviso de reposição para o insumo.
+3a.1. O administrador acessa "Configurar alertas de estoque".
+3a.2. O administrador define a quantidade mínima de segurança.
+3a.3. O sistema salva a regra e passa a emitir alertas quando o saldo atingir o limite.
+
+
+Tabela 6 – Fluxo de Eventos: Autorizar Cancelamentos (Administrador) 
+
+Caso de uso: 
+
+Autorizar Cancelamentos 
+Atores: 
+
+Administrador
+Pré-condições: 
+
+Um cliente solicitou o cancelamento de um pedido já pago ou em preparo. 
+Pós-condições: 
+
+O pedido é estornado financeiramente e os itens retornam ao estoque. 
+Fluxo principal:
+1. O administrador recebe a notificação de solicitação de cancelamento no painel.
+2. O administrador acessa a tela "Autorizar cancelamentos".
+3. O administrador avalia o motivo e autoriza a devolução.
+4. O sistema registra o estorno financeiro nos relatórios.
+5. O sistema atualiza o status do pedido para o cliente.
+Fluxo alternativo: 
+3a. O administrador avalia que o pedido já foi consumido ou não cabe estorno.
+3a.1. O administrador nega o cancelamento.
+3a.2. O sistema informa ao cliente a recusa do estorno.
+

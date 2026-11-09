@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+title Sistema de Automação de Pedidos (Painel Gerencial)
+actor "Administrador" as ator
+rectangle "Sistema Arducci" {
+  usecase "Fazer login administrativo" as U0
+  usecase "Gerenciar usuários e permissões" as U1
+  usecase "Gerenciar cardápio e precificações" as U2
+  usecase "Registrar movimentação de estoque" as U3
+  usecase "Autorizar cancelamentos" as U4
+  usecase "Consultar relatórios e faturamento" as U5
+  usecase "Configurar alertas de estoque" as U6
+}
+ator -- U0
+ator -- U1
+ator -- U2
+ator -- U3
+ator -- U4
+ator -- U5
+U6 ..> U3 : <<extend>>
+@enduml

@@ -1,0 +1,13 @@
+flowchart TD
+ A[Cliente ou visitante abre pedido] --> B{Pedido já entregue?}
+ B -->|Não| C[Solicitar cancelamento e registrar motivo]
+ C --> D[Registrar cancelamento conforme regra atualizada]
+ D --> E{Houve pagamento?}
+ E -->|Sim| F[Caixa avalia tratamento financeiro e registra decisão]
+ E -->|Não| G[Encerrar comanda cancelada]
+ F --> G
+ B -->|Sim| H[Encaminhar ao caixa para avaliação do motivo]
+ H --> I{Decisão do responsável}
+ I -->|Troca autorizada| J[Registrar troca e atendimento]
+ I -->|Outra solução autorizada| K[Registrar decisão e providência]
+ I -->|Recusado| L[Registrar motivo e informar cliente]

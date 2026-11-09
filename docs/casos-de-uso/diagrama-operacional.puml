@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+title Sistema de Automação de Pedidos (Área Operacional)
+actor "Funcionário" as ator
+rectangle "Sistema Arducci" {
+  usecase "Atualizar disponibilidade de balcão" as U0
+  usecase "Acompanhar fila de pedidos" as U1
+  usecase "Processar pagamento físico" as U2
+  usecase "Acessar área operacional" as U3
+  usecase "Atualizar status do pedido" as U4
+  usecase "Consultar comanda" as U5
+}
+ator -- U0
+ator -- U1
+ator -- U2
+ator -- U3
+U4 ..> U1 : <<extend>>
+U2 ..> U5 : <<include>>
+@enduml

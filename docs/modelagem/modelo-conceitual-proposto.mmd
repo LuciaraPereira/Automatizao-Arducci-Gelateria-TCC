@@ -1,0 +1,15 @@
+erDiagram
+ CLIENTE o|--o{ PEDIDO : realiza
+ PEDIDO ||--|| COMANDA : identifica
+ MESA o|--o{ PEDIDO : atende
+ PEDIDO ||--|{ ITEM_PEDIDO : contem
+ PRODUTO ||--o{ ITEM_PEDIDO : referencia
+ PEDIDO ||--o{ PAGAMENTO : registra
+ PEDIDO ||--o{ HISTORICO_STATUS : possui
+ PEDIDO ||--o{ SOLICITACAO_CANCELAMENTO : recebe
+ PRODUTO ||--o{ FICHA_TECNICA_ITEM : utiliza
+ INSUMO ||--o{ FICHA_TECNICA_ITEM : compoe
+ INSUMO ||--o{ MOVIMENTO_INSUMO : movimenta
+ SABOR ||--o{ LOTE_GELATO : identifica
+ LOTE_GELATO ||--o{ MOVIMENTO_GELATO : movimenta
+ LOCAL_ESTOQUE ||--o{ MOVIMENTO_GELATO : registra

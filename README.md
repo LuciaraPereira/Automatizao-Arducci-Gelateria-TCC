@@ -123,6 +123,12 @@ arducci-gelateria/
 | Luciara Pereira  |Estruturação do Banco de Dados (MER/DER)  |
 | Vivian Gomes     |Documentação e camada de presentação |
 
+## Wiki do projeto
+
+Acesse a documentação, a organização das pastas e os links para testar o sistema:
+
+[📚 Abrir a Wiki do projeto](https://github.com/fatecrl-ite004/Automatiza-o-Arducci-Gelateria/wiki)
+
 
 # Documentação adicional
 
@@ -132,3 +138,44 @@ Os artefatos de engenharia de software elaborados (Diagrama de Casos de Uso, Flu
 
 - [Requisitos Funcionais — RF001 a RF021](docs/requisitos/requisitos-funcionais.md)
 - [Requisitos Não Funcionais — RNF01 a RNF08](docs/requisitos/requisitos-nao-funcionais.md)
+
+# Casos de uso do TCC
+
+Conteúdo original enviado pela equipe, preservado sem substituir pelas regras posteriores.
+
+1. [Realizar Pedido — Cliente](tabelas/tabela-01.md)
+2. [Cancelar Pedido — Cliente](tabelas/tabela-02.md)
+3. [Acompanhar Fila e Atualizar Status — Funcionário](tabelas/tabela-03.md)
+4. [Processar Pagamento Físico — Funcionário](tabelas/tabela-04.md)
+5. [Registrar Movimentação de Estoque — Administrador](tabelas/tabela-05.md)
+6. [Autorizar Cancelamentos — Administrador](tabelas/tabela-06.md)
+
+# Modelagem
+
+A equipe enviou uma figura pronta de modelo de dados. Sua referência é preservada em [ Documento Oficial do TCC ](https://docs.google.com/document/d/1JJkD4QNlmHOATKFr68zNRPv7tgpQ52T5e4_wEQ5-4X0/edit?usp=drivesdk)
+
+- [Regras atualizadas e pontos para conciliação](regras-atualizadas.md)
+- [Modelo conceitual complementar — proposta](modelo-conceitual-proposto.md)
+
+## Mapeamento das telas
+
+- [Matriz de requisitos e telas](docs/rastreabilidade/mapeamento-telas-requisitos.md)
+- [Mapas do Cliente Arducci e do Visitante](docs/rastreabilidade/mapas-cliente-e-visitante.md)
+
+# Arquitetura
+
+- [Arquitetura atual do protótipo](atual.md)
+- [Arquitetura prevista para o sistema — proposta](proposta.md)
+
+# Diagramas de fluxos
+
+Cenários do protótipo e propostas explicitadas em cada página.
+
+1. [Jornada de compra — Cliente Arducci](01-jornada-compra-cliente/README.md)
+2. [Jornada de compra — Visitante](02-jornada-compra-visitante/README.md)
+3. [Acompanhamento de pedido](03-acompanhamento-pedido/README.md)
+4. [Cancelamento e avaliação após entrega](04-cancelamento-pedido/README.md)
+5. [Processamento de comanda sem dados pessoais](05-comanda-sem-identificacao/README.md)
+6. [Mapa de mesas e atendimento](06-mapa-de-mesas/README.md)
+7. [Gestão de estoque — insumos e produtos](07-estoque-insumos-produtos/README.md)
+8. [Gestão de estoque — gelatos](08-estoque-gelatos/README.md)
